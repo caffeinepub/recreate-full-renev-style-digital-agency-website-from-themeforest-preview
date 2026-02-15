@@ -1,0 +1,160 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-a-single-page-home-front-page-experience-only-no-additional-routes-pages-inspired-by-the-renev-modern-creative-digital-agency-style-with-a-cohesive-section-based-layout-e-g-hero-about-snapshot-services-overview-featured-work-portfolio-highlights-testimonials-metrics-stats-cta-footer",
+      "featureTitle": "Implement a single-page Home (front page) experience only (no additional routes/pages), inspired by the Renev modern creative digital agency style, with a cohesive section-based layout (e.g., Hero, About snapshot, Services overview, Featured work/Portfolio highlights, Testimonials, Metrics/Stats, CTA, Footer).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/home/HeaderNav.tsx",
+        "frontend/src/components/home/sections/AboutSnapshotSection.tsx",
+        "frontend/src/components/home/sections/CtaSection.tsx",
+        "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+        "frontend/src/components/home/sections/FooterSection.tsx",
+        "frontend/src/components/home/sections/HeroSection.tsx",
+        "frontend/src/components/home/sections/ServicesSection.tsx",
+        "frontend/src/components/home/sections/StatsSection.tsx",
+        "frontend/src/components/home/sections/TestimonialsSection.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-on-page-navigation-header-for-the-home-page-that-uses-anchor-links-to-scroll-to-sections-on-the-same-page-single-page-navigation",
+      "featureTitle": "Add an on-page navigation header for the Home page that uses anchor links to scroll to sections on the same page (single-page navigation).",
+      "files": [
+        "frontend/src/components/home/HeaderNav.tsx",
+        "frontend/src/hooks/useScrollSpy.ts",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-define-and-apply-one-coherent-visual-theme-for-the-home-page-colors-typography-spacing-buttons-cards-and-section-styling-matching-a-modern-creative-digital-agency-aesthetic-and-keep-it-consistent-across-all-home-sections",
+      "featureTitle": "Define and apply one coherent visual theme for the Home page (colors, typography, spacing, buttons, cards, and section styling) matching a modern creative digital agency aesthetic, and keep it consistent across all Home sections.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-modern-ui-interactions-on-the-home-page-hover-press-states-for-interactive-elements-and-subtle-scroll-reveal-animations-for-major-sections-as-they-enter-the-viewport",
+      "featureTitle": "Add modern UI interactions on the Home page: hover/press states for interactive elements and subtle scroll-reveal animations for major sections as they enter the viewport.",
+      "files": [
+        "frontend/src/components/motion/ScrollReveal.tsx",
+        "frontend/src/hooks/useInView.ts",
+        "frontend/src/index.css",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-drive-the-home-page-sections-from-a-small-set-of-reusable-frontend-content-data-structures-e-g-arrays-objects-for-services-featured-projects-testimonials-stats-to-avoid-duplicative-hardcoding-across-the-page",
+      "featureTitle": "Drive the Home page sections from a small set of reusable frontend content data structures (e.g., arrays/objects for services, featured projects, testimonials, stats) to avoid duplicative hardcoding across the page.",
+      "files": [
+        "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+        "frontend/src/components/home/sections/ServicesSection.tsx",
+        "frontend/src/components/home/sections/StatsSection.tsx",
+        "frontend/src/components/home/sections/TestimonialsSection.tsx",
+        "frontend/src/content/homeContent.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-basic-seo-and-accessibility-fundamentals-for-the-single-home-page-semantic-heading-structure-alt-text-for-images-and-page-level-meta-title-description-for-the-home-route",
+      "featureTitle": "Provide basic SEO and accessibility fundamentals for the single Home page: semantic heading structure, alt text for images, and page-level meta title/description for the Home route.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/home/sections/AboutSnapshotSection.tsx",
+        "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+        "frontend/src/components/home/sections/HeroSection.tsx",
+        "frontend/src/components/home/sections/ServicesSection.tsx",
+        "frontend/src/components/home/sections/TestimonialsSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-and-render-locally-generated-static-images-for-the-home-page-under-frontend-public-assets-generated-and-use-them-in-the-hero-and-other-key-home-sections-e-g-featured-work-thumbnails-and-testimonial-avatars",
+      "featureTitle": "Add and render locally generated static images for the Home page under frontend/public/assets/generated and use them in the Hero and other key Home sections (e.g., featured work thumbnails and testimonial avatars).",
+      "files": [
+        "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+        "frontend/src/components/home/sections/HeroSection.tsx",
+        "frontend/src/components/home/sections/TestimonialsSection.tsx",
+        "frontend/src/content/homeContent.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

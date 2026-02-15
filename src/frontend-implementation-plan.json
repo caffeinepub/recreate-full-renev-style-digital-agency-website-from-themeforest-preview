@@ -1,0 +1,308 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Single-page Renev-style agency Home landing (front page only)",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "summary": "Create a single, section-based Renev-inspired agency Home page experience (no additional routes/pages).",
+      "acceptanceCriteria": [
+        "The app renders a single Home/front page only and does not expose separate About/Services/Portfolio/Blog/Contact pages/routes.",
+        "The Home page includes multiple clearly separated, modern marketing sections (at minimum: Hero + 4 additional sections + Footer).",
+        "Content is written in English and reads like a modern creative digital agency landing page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Implement the single-page Home composition only (no router): render Header + all required sections (Hero, About snapshot, Services, Featured Work, Testimonials, Stats, CTA, Footer) in one scrollable page."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page container that composes section components in order and assigns stable section ids for anchor navigation."
+        },
+        {
+          "path": "frontend/src/components/home/HeaderNav.tsx",
+          "operation": "create",
+          "description": "Create the on-page header/navigation shell used by the Home page, designed for a modern agency aesthetic. Use shadcn-ui components (e.g., Button) where appropriate to match existing UI composition patterns. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/home/sections/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create Hero section content/layout (headline, subcopy, primary/secondary CTA, hero visual) in a Renev-inspired style; ensure it is part of the single Home page only."
+        },
+        {
+          "path": "frontend/src/components/home/sections/AboutSnapshotSection.tsx",
+          "operation": "create",
+          "description": "Create a concise agency About snapshot section (positioning, differentiators) as a scroll section on the Home page."
+        },
+        {
+          "path": "frontend/src/components/home/sections/ServicesSection.tsx",
+          "operation": "create",
+          "description": "Create Services overview section (cards/grid) as a scroll section on the Home page. Use shadcn-ui components (e.g., Card) where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+          "operation": "create",
+          "description": "Create Featured work/portfolio highlights section (thumbnails + brief case copy) as a scroll section on the Home page."
+        },
+        {
+          "path": "frontend/src/components/home/sections/TestimonialsSection.tsx",
+          "operation": "create",
+          "description": "Create Testimonials section with avatar, quote, role/company; keep it as an in-page section (no route)."
+        },
+        {
+          "path": "frontend/src/components/home/sections/StatsSection.tsx",
+          "operation": "create",
+          "description": "Create Metrics/Stats section with numeric highlights, displayed as a modern marketing band section."
+        },
+        {
+          "path": "frontend/src/components/home/sections/CtaSection.tsx",
+          "operation": "create",
+          "description": "Create CTA section (conversion-focused copy + button) as a scroll section on the Home page; keep it purely presentational (no backend submission)."
+        },
+        {
+          "path": "frontend/src/components/home/sections/FooterSection.tsx",
+          "operation": "create",
+          "description": "Create Footer section with brand, quick in-page links, and contact-like info (static only; no separate pages/routes)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add a sticky on-page header with anchor-link navigation, smooth scrolling, and active section indication (scrollspy).",
+      "acceptanceCriteria": [
+        "Header navigation links scroll to the corresponding sections on the same page.",
+        "Smooth scrolling is enabled for in-page section navigation.",
+        "The currently active section is visually indicated in the navigation as the user scrolls."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useScrollSpy.ts",
+          "operation": "create",
+          "description": "Implement a scrollspy hook (IntersectionObserver-based) that tracks which Home section is currently active and exposes the active section id for the header."
+        },
+        {
+          "path": "frontend/src/components/home/HeaderNav.tsx",
+          "operation": "modify",
+          "description": "Wire anchor links (href=#section-id) to Home sections and use the scrollspy hook to visually indicate the active section; ensure keyboard focus/visibility remains accessible. Use shadcn-ui components (e.g., Button) for nav actions if appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Enable smooth scrolling for in-page anchor navigation (e.g., via global html scroll behavior) and add any minimal global styles needed for the sticky header offset behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Define and apply a consistent modern agency visual theme (palette, typography, spacing, components) across all Home sections.",
+      "acceptanceCriteria": [
+        "A single consistent design system is evident across all Home sections (typography scale, spacing rhythm, button styles, card styles).",
+        "The page looks polished on both mobile and desktop breakpoints.",
+        "No blue+purple default theme is used unless it emerges incidentally from the chosen palette; prefer a distinct, modern agency palette."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define a cohesive theme via CSS variables used by Tailwind (background/foreground/primary/accent/etc.), set global typography defaults, and establish consistent spacing/section styling; choose a distinct modern agency palette (avoid default blue+purple look)."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme tokens as needed for the landing page (e.g., additional neutral/brand shades, shadows, spacing/typography tweaks) while keeping existing Tailwind + shadcn/ui composition patterns."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Apply consistent layout primitives (max widths, padding, section separators/bands) and responsive breakpoints so the design remains polished on mobile and desktop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add modern interactions: hover/press states and subtle scroll-reveal animations for major sections without harming accessibility.",
+      "acceptanceCriteria": [
+        "Buttons/links/cards have clear hover and active/pressed states.",
+        "Major sections reveal with subtle animation on scroll (without impacting readability or performance).",
+        "Animations do not block navigation and do not trap focus (keyboard navigation remains usable)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useInView.ts",
+          "operation": "create",
+          "description": "Create a lightweight in-view hook (IntersectionObserver-based) to support scroll-reveal animations for major sections."
+        },
+        {
+          "path": "frontend/src/components/motion/ScrollReveal.tsx",
+          "operation": "create",
+          "description": "Create a ScrollReveal wrapper that applies subtle entrance transitions when content enters the viewport; respect reduced-motion preferences and avoid focus traps."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Wrap major Home sections with ScrollReveal to animate on scroll while keeping navigation and readability intact."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add consistent interaction states (hover/active/focus-visible) for links/buttons/cards and ensure reduced-motion handling is supported globally."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Render key Home sections from centralized reusable content data structures (services, featured projects, testimonials, stats).",
+      "acceptanceCriteria": [
+        "At least services, featured projects, and testimonials (or comparable sets) are rendered from centralized arrays/objects.",
+        "Updating an item in the data structure updates the rendered UI without editing multiple locations."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/homeContent.ts",
+          "operation": "create",
+          "description": "Create centralized Home content data (arrays/objects) for services, featured projects, testimonials, and stats, including copy and local image references."
+        },
+        {
+          "path": "frontend/src/components/home/sections/ServicesSection.tsx",
+          "operation": "modify",
+          "description": "Render the services UI from the centralized homeContent data structures to avoid duplicated hardcoding. Use shadcn-ui components (e.g., Card) where appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+          "operation": "modify",
+          "description": "Render featured projects from the centralized homeContent data structures; ensure each project card uses the locally generated thumbnail references."
+        },
+        {
+          "path": "frontend/src/components/home/sections/TestimonialsSection.tsx",
+          "operation": "modify",
+          "description": "Render testimonials from the centralized homeContent data structures; ensure each testimonial uses a locally generated avatar reference."
+        },
+        {
+          "path": "frontend/src/components/home/sections/StatsSection.tsx",
+          "operation": "modify",
+          "description": "Render stats/metrics from the centralized homeContent data structures for consistency and easy updates."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Implement basic SEO and accessibility fundamentals for the single Home page (semantic headings, alt text, meta title/description).",
+      "acceptanceCriteria": [
+        "Headings follow a semantic hierarchy (one H1, logical H2/H3 structure).",
+        "All meaningful images include descriptive alt text (decorative images use empty alt where appropriate).",
+        "Home route has a meta title and description set."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Set a Home-focused meta title and add a meta description appropriate for a modern creative digital agency landing page."
+        },
+        {
+          "path": "frontend/src/components/home/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Ensure the page has exactly one H1 (in Hero) and that hero imagery includes correct alt text semantics (descriptive where meaningful; empty alt for decorative)."
+        },
+        {
+          "path": "frontend/src/components/home/sections/AboutSnapshotSection.tsx",
+          "operation": "modify",
+          "description": "Apply semantic section structure and heading hierarchy (H2/H3) aligned with the single-page layout."
+        },
+        {
+          "path": "frontend/src/components/home/sections/ServicesSection.tsx",
+          "operation": "modify",
+          "description": "Ensure heading hierarchy and accessible interactive elements (focus-visible, labels as needed) for services cards/CTAs."
+        },
+        {
+          "path": "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+          "operation": "modify",
+          "description": "Ensure portfolio thumbnails have meaningful alt text and headings follow the page hierarchy."
+        },
+        {
+          "path": "frontend/src/components/home/sections/TestimonialsSection.tsx",
+          "operation": "modify",
+          "description": "Ensure avatar images and testimonial markup are accessible (alt text for avatars; semantic headings)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Add and render locally generated static images from frontend/public/assets/generated in Hero and key sections (portfolio thumbnails, testimonial avatars, decorative accents).",
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated and are referenced by the Home page UI.",
+        "Hero section uses a generated hero visual.",
+        "Featured work/testimonials sections use generated thumbnails/avatars rather than external URLs."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/hero-visual.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the required generated hero image asset at frontend/public/assets/generated/hero-visual.dim_1600x900.png for use in the Hero section."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-01.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the required generated portfolio thumbnail asset at frontend/public/assets/generated/portfolio-01.dim_800x600.png for Featured Work cards."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-02.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the required generated portfolio thumbnail asset at frontend/public/assets/generated/portfolio-02.dim_800x600.png for Featured Work cards."
+        },
+        {
+          "path": "frontend/public/assets/generated/portfolio-03.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the required generated portfolio thumbnail asset at frontend/public/assets/generated/portfolio-03.dim_800x600.png for Featured Work cards."
+        },
+        {
+          "path": "frontend/public/assets/generated/avatar-01.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required generated testimonial avatar asset at frontend/public/assets/generated/avatar-01.dim_256x256.png for the Testimonials section."
+        },
+        {
+          "path": "frontend/public/assets/generated/avatar-02.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required generated testimonial avatar asset at frontend/public/assets/generated/avatar-02.dim_256x256.png for the Testimonials section."
+        },
+        {
+          "path": "frontend/public/assets/generated/avatar-03.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required generated testimonial avatar asset at frontend/public/assets/generated/avatar-03.dim_256x256.png for the Testimonials section."
+        },
+        {
+          "path": "frontend/public/assets/generated/shape-accent-01.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the required decorative accent image at frontend/public/assets/generated/shape-accent-01.dim_512x512.png for use as subtle background/section accents."
+        },
+        {
+          "path": "frontend/public/assets/generated/shape-accent-02.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the required decorative accent image at frontend/public/assets/generated/shape-accent-02.dim_512x512.png for use as subtle background/section accents."
+        },
+        {
+          "path": "frontend/src/content/homeContent.ts",
+          "operation": "modify",
+          "description": "Reference the exact generated asset paths (frontend/public/assets/generated/hero-visual.dim_1600x900.png, frontend/public/assets/generated/portfolio-01.dim_800x600.png, frontend/public/assets/generated/portfolio-02.dim_800x600.png, frontend/public/assets/generated/portfolio-03.dim_800x600.png, frontend/public/assets/generated/avatar-01.dim_256x256.png, frontend/public/assets/generated/avatar-02.dim_256x256.png, frontend/public/assets/generated/avatar-03.dim_256x256.png, frontend/public/assets/generated/shape-accent-01.dim_512x512.png, frontend/public/assets/generated/shape-accent-02.dim_512x512.png) so sections consume them from one place."
+        },
+        {
+          "path": "frontend/src/components/home/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Render the hero visual using frontend/public/assets/generated/hero-visual.dim_1600x900.png and optionally incorporate shape accents (frontend/public/assets/generated/shape-accent-01.dim_512x512.png, frontend/public/assets/generated/shape-accent-02.dim_512x512.png) as decorative elements with appropriate alt handling."
+        },
+        {
+          "path": "frontend/src/components/home/sections/FeaturedWorkSection.tsx",
+          "operation": "modify",
+          "description": "Render featured work thumbnails using the locally generated portfolio images (frontend/public/assets/generated/portfolio-01.dim_800x600.png, portfolio-02, portfolio-03) rather than external URLs."
+        },
+        {
+          "path": "frontend/src/components/home/sections/TestimonialsSection.tsx",
+          "operation": "modify",
+          "description": "Render testimonial avatars using the locally generated avatar images (frontend/public/assets/generated/avatar-01.dim_256x256.png, avatar-02, avatar-03) rather than external URLs."
+        }
+      ]
+    }
+  ]
+}

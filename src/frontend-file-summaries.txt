@@ -1,0 +1,21 @@
+{
+  "frontend/src/App.tsx": "Main application component that renders the single-page HomePage component without routing.",
+  "frontend/src/pages/HomePage.tsx": "Home page container that composes all section components (Hero, About, Services, Work, Testimonials, Stats, CTA, Footer) in a single scrollable page layout.",
+  "frontend/src/components/home/HeaderNav.tsx": "Sticky navigation header with anchor-link navigation, mobile menu, scrollspy active section indication, and smooth scrolling to page sections.",
+  "frontend/src/components/home/sections/HeroSection.tsx": "Hero section with headline, subheading, CTAs, hero visual image, and decorative floating shape accents.",
+  "frontend/src/components/home/sections/AboutSnapshotSection.tsx": "About snapshot section with agency positioning and three key differentiator cards (Strategic Approach, Innovative Solutions, Client-Centric).",
+  "frontend/src/components/home/sections/ServicesSection.tsx": "Services overview section rendering six service cards from centralized content data with icons, descriptions, and feature lists.",
+  "frontend/src/components/home/sections/FeaturedWorkSection.tsx": "Featured work portfolio section displaying three project cards with images, tags, titles, and descriptions from centralized content.",
+  "frontend/src/components/home/sections/TestimonialsSection.tsx": "Testimonials section with three client testimonial cards including avatars, quotes, names, roles, and companies from centralized content.",
+  "frontend/src/components/home/sections/StatsSection.tsx": "Stats/metrics section with four key statistics displayed on a branded gradient background.",
+  "frontend/src/components/home/sections/CtaSection.tsx": "Call-to-action section with conversion-focused copy and action buttons on a gradient background.",
+  "frontend/src/components/home/sections/FooterSection.tsx": "Footer with brand info, quick links, contact info, social media icons, and attribution including caffeine.ai link with UTM parameters.",
+  "frontend/src/components/motion/ScrollReveal.tsx": "Reusable scroll-reveal animation wrapper component that fades in and translates content when it enters the viewport.",
+  "frontend/src/hooks/useScrollSpy.ts": "Custom hook using scroll position to track and return the currently active section ID for navigation highlighting.",
+  "frontend/src/hooks/useInView.ts": "Custom hook using IntersectionObserver to detect when an element enters the viewport for scroll-reveal animations.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file for future React Query hooks when backend functionality is added.",
+  "frontend/src/content/homeContent.ts": "Centralized content data structures for services, projects, testimonials, and stats with all copy and asset references.",
+  "frontend/src/index.css": "Global styles with custom OKLCH color system (teal/coral palette), smooth scrolling, custom animations, reduced-motion support, and accessibility focus styles.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom brand colors, font families, and design tokens matching the modern agency aesthetic.",
+  "frontend/index.html": "HTML entry point with meta title, description for SEO, and Inter font preload for typography."
+}

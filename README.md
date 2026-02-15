@@ -1,2 +1,3 @@
-# recreate-full-renev-style-digital-agency-website-from-themeforest-preview
-Exported from Caffeine project: Recreate full Renev-style digital agency website from ThemeForest preview
+## Recreate full Renev-style digital agency website from ThemeForest preview
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

@@ -1,0 +1,168 @@
+{
+  "kind": "build_request",
+  "title": "Scope change: build only the front (home) page for the Renev-style agency site",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-9",
+      "text": "Implement a single-page Home (front page) experience only (no additional routes/pages), inspired by the Renev modern creative digital agency style, with a cohesive section-based layout (e.g., Hero, About snapshot, Services overview, Featured work/Portfolio highlights, Testimonials, Metrics/Stats, CTA, Footer).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app renders a single Home/front page only and does not expose separate About/Services/Portfolio/Blog/Contact pages/routes.",
+        "The Home page includes multiple clearly separated, modern marketing sections (at minimum: Hero + 4 additional sections + Footer).",
+        "Content is written in English and reads like a modern creative digital agency landing page."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add an on-page navigation header for the Home page that uses anchor links to scroll to sections on the same page (single-page navigation).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header navigation links scroll to the corresponding sections on the same page.",
+        "Smooth scrolling is enabled for in-page section navigation.",
+        "The currently active section is visually indicated in the navigation as the user scrolls."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Define and apply one coherent visual theme for the Home page (colors, typography, spacing, buttons, cards, and section styling) matching a modern creative digital agency aesthetic, and keep it consistent across all Home sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A single consistent design system is evident across all Home sections (typography scale, spacing rhythm, button styles, card styles).",
+        "The page looks polished on both mobile and desktop breakpoints.",
+        "No blue+purple default theme is used unless it emerges incidentally from the chosen palette; prefer a distinct, modern agency palette."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add modern UI interactions on the Home page: hover/press states for interactive elements and subtle scroll-reveal animations for major sections as they enter the viewport.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Buttons/links/cards have clear hover and active/pressed states.",
+        "Major sections reveal with subtle animation on scroll (without impacting readability or performance).",
+        "Animations do not block navigation and do not trap focus (keyboard navigation remains usable)."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Drive the Home page sections from a small set of reusable frontend content data structures (e.g., arrays/objects for services, featured projects, testimonials, stats) to avoid duplicative hardcoding across the page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least services, featured projects, and testimonials (or comparable sets) are rendered from centralized arrays/objects.",
+        "Updating an item in the data structure updates the rendered UI without editing multiple locations."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Provide basic SEO and accessibility fundamentals for the single Home page: semantic heading structure, alt text for images, and page-level meta title/description for the Home route.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Headings follow a semantic hierarchy (one H1, logical H2/H3 structure).",
+        "All meaningful images include descriptive alt text (decorative images use empty alt where appropriate).",
+        "Home route has a meta title and description set."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Add and render locally generated static images for the Home page under frontend/public/assets/generated and use them in the Hero and other key Home sections (e.g., featured work thumbnails and testimonial avatars).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "this time just built the front page only"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated and are referenced by the Home page UI.",
+        "Hero section uses a generated hero visual.",
+        "Featured work/testimonials sections use generated thumbnails/avatars rather than external URLs."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Use React + TypeScript, Tailwind CSS, and existing UI composition patterns; do not introduce unsupported frameworks.",
+    "Backend should remain unchanged unless strictly necessary for the front page."
+  ],
+  "nonGoals": [
+    "Do not implement multi-page routing (About/Services detail/Portfolio detail/Blog/Contact pages).",
+    "Do not implement a backend-backed contact form submission for this scope (front page only).",
+    "Do not add third-party authentication or external database integrations."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Abstract creative agency hero illustration with modern shapes and subtle gradient (hero-visual.dim_1600x900.png)",
+      "Set of 3 portfolio thumbnail images with modern tech/agency aesthetic (portfolio-01.dim_800x600.png)",
+      "Set of 3 portfolio thumbnail images with modern tech/agency aesthetic (portfolio-02.dim_800x600.png)",
+      "Set of 3 portfolio thumbnail images with modern tech/agency aesthetic (portfolio-03.dim_800x600.png)",
+      "Set of 3 testimonial avatar portraits in a consistent illustrative style (avatar-01.dim_256x256.png)",
+      "Set of 3 testimonial avatar portraits in a consistent illustrative style (avatar-02.dim_256x256.png)",
+      "Set of 3 testimonial avatar portraits in a consistent illustrative style (avatar-03.dim_256x256.png)",
+      "Decorative abstract shape accents pack (shape-accent-01.dim_512x512.png)",
+      "Decorative abstract shape accents pack (shape-accent-02.dim_512x512.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Build only the front (home) page for now; avoid additional pages/routes."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

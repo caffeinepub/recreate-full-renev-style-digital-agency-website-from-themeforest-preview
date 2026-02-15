@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Modern agency color palette - Teal & Coral accent */
+        --background: 1 0 0;
+        --foreground: 0.145 0 0;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.145 0 0;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.145 0 0;
+        
+        /* Brand colors - Teal primary */
+        --primary: 0.205 0 0;
+        --primary-foreground: 0.985 0 0;
+        
+        --secondary: 0.97 0 0;
+        --secondary-foreground: 0.205 0 0;
+        
+        --muted: 0.97 0 0;
+        --muted-foreground: 0.556 0 0;
+        
+        --accent: 0.97 0 0;
+        --accent-foreground: 0.205 0 0;
+        
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        
+        --border: 0.922 0 0;
+        --input: 0.922 0 0;
+        --ring: 0.708 0 0;
+        
+        /* Custom brand colors */
+        --brand: 0.62 0.15 195;
+        --brand-dark: 0.52 0.15 195;
+        --accent-secondary: 0.72 0.18 35;
+    }
+
+    .dark {
+        --background: 0.145 0 0;
+        --foreground: 0.985 0 0;
+        
+        --card: 0.205 0 0;
+        --card-foreground: 0.985 0 0;
+        
+        --popover: 0.269 0 0;
+        --popover-foreground: 0.985 0 0;
+        
+        --primary: 0.922 0 0;
+        --primary-foreground: 0.205 0 0;
+        
+        --secondary: 0.269 0 0;
+        --secondary-foreground: 0.985 0 0;
+        
+        --muted: 0.269 0 0;
+        --muted-foreground: 0.708 0 0;
+        
+        --accent: 0.371 0 0;
+        --accent-foreground: 0.985 0 0;
+        
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.205 0 0;
+        
+        --border: 1 0 0 / 10%;
+        --input: 1 0 0 / 15%;
+        --ring: 0.556 0 0;
+        
+        /* Custom brand colors for dark mode */
+        --brand: 0.68 0.15 195;
+        --brand-dark: 0.58 0.15 195;
+        --accent-secondary: 0.75 0.18 35;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Smooth scroll with offset for fixed header */
+    html {
+        scroll-padding-top: 80px;
+    }
+    
+    /* Custom animations */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+    
+    @keyframes float-delayed {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+    
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-float-delayed {
+        animation: float-delayed 8s ease-in-out infinite;
+        animation-delay: 1s;
+    }
+    
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+        
+        .animate-float,
+        .animate-float-delayed {
+            animation: none;
+        }
+    }
+    
+    /* Focus visible styles for accessibility */
+    *:focus-visible {
+        @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-background;
+    }
+    
+    /* Button hover states */
+    button:hover,
+    a:hover {
+        @apply transition-all duration-200;
+    }
+    
+    /* Card hover effects */
+    .group:hover {
+        @apply transition-all duration-300;
+    }
+}
